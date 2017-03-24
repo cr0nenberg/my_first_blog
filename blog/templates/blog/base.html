@@ -6,8 +6,8 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Orbitron" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-	<link rel="icon" href="/home/marco/Schreibtisch/python/Icons/documen-send.png">
-    </head>
+	<link rel="icon" href=document-send.png>
+    </head> 
     <body>
    
  <div class="page-header">
@@ -15,11 +15,12 @@
         <p class="top-menu"><font size="4">Hello {{ user.username }} (<a href="{% url 'logout' %}"</font>Log out</a>)</p>
 	<a href="{% url 'post_draft_list' %}" class="top-menu"><small><span class="glyphicon glyphicon-edit"></span></small></a>
 	<a href="{% url 'post_new' %}" class="top-menu"><small><span class="glyphicon glyphicon-plus"></span></small></a> 
+	<a href="{% url 'eintrag_new' %}" class="top-menu"><small><span class="glyphicon glyphicon-flag"></span></small></a>
 
 {% else %}
 <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
 {% endif%}
-       <h1><a href="/">cr0nenberg</a></h1>
+<small><h1><a href="/">cr0nenberg</a></h1></small>
     </div>
     <div class="content container">
         <div class="row">

@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from .models import Post, Comment
-from .forms import PostForm, CommentForm
+from .models import Post, Comment, Eintrag
+from .forms import PostForm, CommentForm, EintragForm
 
 # Create your views here.
 
@@ -66,4 +66,21 @@ def add_comment_to_post(request, pk):
 	else:
 		form = CommentForm()
 	return render(request, 'blog/add_comment_to_post.html', {'form': form})
+def add_like(request, pk):
+	post.likes_add()
+def eintrag_new(request):
+	if request.method == "POST":
+		form = EintragForm(request.POST)
+		if form.is_valid():
+			post = form.save(commit=False)
+		#	post.author = request.user
+			post.datum = timezone.now()
+			post.save()
+			
+	else:
+		form = EintragForm()
+	return render(request, 'blog/eintrag_edit.html', {'form': form})
+
+		
+	
 	

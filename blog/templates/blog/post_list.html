@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 {% extends 'blog/base.html' %}
 
 	{% block content %}
@@ -9,6 +17,8 @@
 		 <div class="date">
                         <p>published: {{ post.published_date }}</p>
                     </div>
+		 <a class = "btn btn-default" href=""><span class="glyphicon glyphicon-thumbs-up"></span>Like</a>
+
 		 <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
   
 		 </div>
